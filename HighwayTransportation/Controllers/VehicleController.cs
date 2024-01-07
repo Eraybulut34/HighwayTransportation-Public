@@ -38,25 +38,18 @@ namespace HighwayTransportation.Controllers
             return CreatedAtAction(nameof(GetVehicles), new { id = createdVehicle.Id }, createdVehicle);
         }
 
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<Vehicle>> GetVehicle(int id)
-        // {
-        //     var vehicle = await _vehicleService.GetByIdAsync(id);
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Vehicle>> GetVehicle(int id)
+        {
+            var vehicle = await _vehicleProvider.GetVehicleDetail(id);
 
-        //     if (vehicle == null)
-        //     {
-        //         return NotFound();
-        //     }
+            if (vehicle == null)
+            {
+                return NotFound();
+            }
 
-        //     return Ok(vehicle);
-        // }
-
-        // [HttpPost]
-        // public async Task<ActionResult<Vehicle>> CreateVehicle(Vehicle vehicle)
-        // {
-        //     await _vehicleService.AddAsync(vehicle);
-        //     return CreatedAtAction(nameof(GetVehicle), new { id = vehicle.Id }, vehicle);
-        // }
+            return Ok(vehicle);
+        }
 
         // [HttpPut("{id}")]
         // public async Task<IActionResult> UpdateVehicle(int id, Vehicle vehicle)

@@ -33,5 +33,11 @@ namespace HighwayTransportation.Providers
             await _vehicleService.AddAsync(vehicleEntity);
             return vehicleEntity;
         }
+
+        public async Task<GetVehicleDetailDto> GetVehicleDetail(int id)
+        {
+            var vehicle = await _vehicleService.GetByIdAsync(id);
+            return _mapper.Map<GetVehicleDetailDto>(vehicle);
+        }
     }
 }
