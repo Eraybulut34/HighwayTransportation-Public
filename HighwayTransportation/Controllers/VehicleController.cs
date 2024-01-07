@@ -51,18 +51,12 @@ namespace HighwayTransportation.Controllers
             return Ok(vehicle);
         }
 
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> UpdateVehicle(int id, Vehicle vehicle)
-        // {
-        //     if (id != vehicle.Id)
-        //     {
-        //         return BadRequest();
-        //     }
-
-        //     await _vehicleService.UpdateAsync(vehicle);
-
-        //     return NoContent();
-        // }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateVehicle(int id, UpdateVehicleDto vehicle)
+        {
+            var vehicleEntity = await _vehicleProvider.UpdateVehicle(id, vehicle);
+            return Ok(vehicleEntity);
+        }
 
         // [HttpDelete("{id}")]
         // public async Task<IActionResult> DeleteVehicle(int id)

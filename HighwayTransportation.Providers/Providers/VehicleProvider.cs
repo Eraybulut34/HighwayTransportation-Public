@@ -39,5 +39,19 @@ namespace HighwayTransportation.Providers
             var vehicle = await _vehicleService.GetByIdAsync(id);
             return _mapper.Map<GetVehicleDetailDto>(vehicle);
         }
+
+        public async Task<GetVehicleDetailDto> UpdateVehicle(int id, UpdateVehicleDto vehicle)
+        {
+            var vehicleEntity = _vehicleService.GetByIdAsync(id).Result;
+            vehicleEntity.Name = vehicle.Name;
+            vehicleEntity.Plate = vehicle.Plate;
+            vehicleEntity.LicenseNumber = vehicle.LicenseNumber;
+            vehicleEntity.ModelYear = vehicle.ModelYear;
+            vehicleEntity.TraficLicenseDate = vehicle.TraficLicenseDate;
+            await _vehicleService.UpdateAsync(vehicleEntity);
+            return _mapper.Map<GetVehicleDetailDto>(vehicleEntity);
+        }
+
+
     }
 }
