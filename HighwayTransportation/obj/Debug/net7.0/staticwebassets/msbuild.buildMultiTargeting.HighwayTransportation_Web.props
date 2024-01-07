@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/HighwayTransportation_Web.props" />
+</Project>

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "HighwayTransportation.Core/1.0.0": {
+        "runtime": {
+          "HighwayTransportation.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HighwayTransportation.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
