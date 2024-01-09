@@ -58,19 +58,11 @@ namespace HighwayTransportation.Controllers
             return Ok(vehicleEntity);
         }
 
-        // [HttpDelete("{id}")]
-        // public async Task<IActionResult> DeleteVehicle(int id)
-        // {
-        //     var vehicle = await _vehicleService.GetByIdAsync(id);
-
-        //     if (vehicle == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     await _vehicleService.RemoveAsync(vehicle);
-
-        //     return NoContent();
-        // }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteVehicle(int id)
+        {
+            await _vehicleProvider.DeleteVehicle(id);
+            return Ok();
+        }
     }
 }

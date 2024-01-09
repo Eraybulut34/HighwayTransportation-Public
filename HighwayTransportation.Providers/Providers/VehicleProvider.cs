@@ -23,8 +23,9 @@ namespace HighwayTransportation.Providers
 
         public async Task<List<GetVehicleListDto>> GetVehicles()
         {
+            //IsDeleted == false
             var vehicles = await _vehicleService.GetAllAsync();
-            return Task.FromResult(_mapper.Map<List<GetVehicleListDto>>(vehicles)).Result;
+            return _mapper.Map<List<GetVehicleListDto>>(vehicles.Where(x => x.IsDeleted == false).ToList());
         }
 
         public async Task<Vehicle> CreateVehicle(CreateVehicleDto vehicle)
@@ -37,7 +38,11 @@ namespace HighwayTransportation.Providers
         public async Task<GetVehicleDetailDto> GetVehicleDetail(int id)
         {
             var vehicle = await _vehicleService.GetByIdAsync(id);
-            return _mapper.Map<GetVehicleDetailDto>(vehicle);
+            if(vehicle == null || vehicle.IsDeleted == true)
+            {
+                return null;
+            }
+            return _mapper.Map<GetVehicleDetailDto>(vehicle); 
         }
 
         public async Task<GetVehicleDetailDto> UpdateVehicle(int id, UpdateVehicleDto vehicle)
@@ -52,6 +57,11 @@ namespace HighwayTransportation.Providers
             return _mapper.Map<GetVehicleDetailDto>(vehicleEntity);
         }
 
-
+        public async Task DeleteVehicle(int id)
+        {
+            var vehicleEntity = _vehicleService.GetByIdAsync(id).Result;
+            vehicleEntity.IsDeleted = true;
+            await _vehicleService.UpdateAsync(vehicleEntity);
+        }
     }
 }
