@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HighwayTransportation.Domain.Entities
 {
-    public class Project : BaseEntity
+    public class Project : IEntity
     {
 
         public string? Name { get; set; }
@@ -28,6 +28,8 @@ namespace HighwayTransportation.Domain.Entities
         public List<Employee>? ProjectEmployees { get; set; }
 
         public List<CompanyAddress>? ProjectAddresses { get; set; }
+
+        public List<Vehicle>? Vehicles { get; set; }
 
     }
 }

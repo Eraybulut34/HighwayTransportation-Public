@@ -31,13 +31,6 @@ C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debu
 C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.pdb
 C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.genruntimeconfig.cache
 C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/ref/HighwayTransportation_Web.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.csproj.AssemblyReference.cache
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.GeneratedMSBuildEditorConfig.editorconfig
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.AssemblyInfoInputs.cache
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.AssemblyInfo.cs
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.csproj.CoreCompileInputs.cache
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.MvcApplicationPartsAssemblyInfo.cs
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.MvcApplicationPartsAssemblyInfo.cache
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation.Services.deps.json
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation.Services.runtimeconfig.json
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation.Services
@@ -71,6 +64,10 @@ C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debu
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.Extensions.Identity.Core.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.Extensions.Identity.Stores.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.OpenApi.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Mono.TextTemplating.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Newtonsoft.Json.dll
@@ -81,6 +78,7 @@ C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debu
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/System.CodeDom.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation.Core.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation.Domain.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation.Providers.dll
@@ -89,6 +87,13 @@ C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debu
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation.Services.pdb
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation.Providers.pdb
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation.Core.pdb
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.csproj.AssemblyReference.cache
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.GeneratedMSBuildEditorConfig.editorconfig
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.AssemblyInfoInputs.cache
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.AssemblyInfo.cs
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.csproj.CoreCompileInputs.cache
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.MvcApplicationPartsAssemblyInfo.cs
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.MvcApplicationPartsAssemblyInfo.cache
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/staticwebassets/msbuild.HighwayTransportation_Web.Microsoft.AspNetCore.StaticWebAssets.props
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/staticwebassets/msbuild.build.HighwayTransportation_Web.props
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.HighwayTransportation_Web.props
@@ -103,8 +108,3 @@ C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debu
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.pdb
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/HighwayTransportation_Web.genruntimeconfig.cache
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/obj/Debug/net7.0/ref/HighwayTransportation_Web.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll

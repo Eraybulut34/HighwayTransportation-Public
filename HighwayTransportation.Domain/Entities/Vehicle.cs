@@ -9,12 +9,20 @@ namespace HighwayTransportation.Domain.Entities
 {
     public class Vehicle : IEntity
     {
+
+        public Vehicle()
+        {
+            Drivers = new List<Employee>();
+
+        }
         public string? Name { get; set; }
+
+
         public string? Plate { get; set; }
         public string? LicenseNumber { get; set; }
         public int ModelYear { get; set; }
         public DateTime TraficLicenseDate { get; set; }
-        public List<Employee>? Drivers { get; set; }
+        public List<Employee> Drivers { get; set; }
 
         public Company? Company { get; set; }
 

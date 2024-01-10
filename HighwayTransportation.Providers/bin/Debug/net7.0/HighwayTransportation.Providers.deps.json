@@ -560,6 +560,9 @@
         }
       },
       "HighwayTransportation.Core/1.0.0": {
+        "dependencies": {
+          "HighwayTransportation.Domain": "1.0.0"
+        },
         "runtime": {
           "HighwayTransportation.Core.dll": {}
         }

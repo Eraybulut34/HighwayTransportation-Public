@@ -20,8 +20,13 @@
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.Extensions.Primitives.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Npgsql.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/HighwayTransportation.Domain.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/HighwayTransportation.Domain.pdb
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.csproj.AssemblyReference.cache
@@ -35,8 +40,3 @@
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.pdb
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.genruntimeconfig.cache
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/ref/HighwayTransportation.Services.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll

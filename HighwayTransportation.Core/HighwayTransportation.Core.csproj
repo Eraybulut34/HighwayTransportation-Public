@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+    <ItemGroup>
+    <ProjectReference Include="..\HighwayTransportation.Domain\HighwayTransportation.Domain.csproj" />
+  </ItemGroup>
+
+
 </Project>

@@ -499,11 +499,14 @@ namespace HighwayTransportation.Domain.Migrations
                     b.Property<int?>("CompanyId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
@@ -514,16 +517,34 @@ namespace HighwayTransportation.Domain.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("ExternalCode")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
+
+                    b.Property<bool>("NoneDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<int>("ProjectStatus")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("StartDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
@@ -580,6 +601,9 @@ namespace HighwayTransportation.Domain.Migrations
                     b.Property<string>("Plate")
                         .HasColumnType("text");
 
+                    b.Property<int?>("ProjectId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
@@ -595,6 +619,8 @@ namespace HighwayTransportation.Domain.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CompanyId");
+
+                    b.HasIndex("ProjectId");
 
                     b.ToTable("Vehicles");
                 });
@@ -757,6 +783,10 @@ namespace HighwayTransportation.Domain.Migrations
                         .WithMany("Vehicles")
                         .HasForeignKey("CompanyId");
 
+                    b.HasOne("HighwayTransportation.Domain.Entities.Project", null)
+                        .WithMany("Vehicles")
+                        .HasForeignKey("ProjectId");
+
                     b.Navigation("Company");
                 });
 
@@ -781,6 +811,8 @@ namespace HighwayTransportation.Domain.Migrations
                     b.Navigation("ProjectAddresses");
 
                     b.Navigation("ProjectEmployees");
+
+                    b.Navigation("Vehicles");
                 });
 #pragma warning restore 612, 618
         }

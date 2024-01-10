@@ -31,9 +31,11 @@ builder.Services.AddScoped<IGenericService<Project>, GenericService<Project>>();
 builder.Services.AddScoped<IGenericService<Role>, GenericService<Role>>();
 builder.Services.AddScoped<VehicleService>();
 builder.Services.AddScoped<AppUserService>();
+builder.Services.AddScoped<ProjectService>();
 builder.Services.AddScoped<IMapper, MapsterMapper.Mapper>();
 builder.Services.AddScoped<VehicleProvider>();
 builder.Services.AddScoped<AppUserProvider>();
+builder.Services.AddScoped<ProjectProvider>();
 
 
 

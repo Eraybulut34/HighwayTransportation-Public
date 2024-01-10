@@ -39,7 +39,7 @@ namespace HighwayTransportation.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Vehicle>> GetVehicle(int id)
+        public async Task<ActionResult<GetVehicleDetailDto>> GetVehicle(int id)
         {
             var vehicle = await _vehicleProvider.GetVehicleDetail(id);
 

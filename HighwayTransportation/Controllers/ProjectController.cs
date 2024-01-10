@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 using HighwayTransportation.Domain.Entities;
 using HighwayTransportation.Services;
 using Microsoft.AspNetCore.Mvc;
+using HighwayTransportation.Providers;
+using Microsoft.OpenApi.Any;
+using HighwayTransportation.Core;
+using HighwayTransportation.Core.Dtos;
 
 namespace HighwayTransportation.Controllers
 {
@@ -11,24 +15,33 @@ namespace HighwayTransportation.Controllers
     [ApiController]
     public class ProjectController : ControllerBase
     {
-        private readonly IGenericService<Project> _projectService;
 
-        public ProjectController(IGenericService<Project> projectService)
+        private readonly ProjectProvider _projectProvider;
+
+        public ProjectController(ProjectProvider projectProvider)
         {
-            _projectService = projectService;
+            _projectProvider = projectProvider;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
+        [HttpGet]
+        public async Task<ActionResult<List<GetProjectListDto>>> GetProjects()
         {
-            var projects = await _projectService.GetAllAsync();
+            var projects = await _projectProvider.GetProjects();
             return Ok(projects);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Project>> GetProject(int id)
+        [HttpPost]
+        public async Task<ActionResult<Project>> CreateProject(CreateProjectDto project)
         {
-            var project = await _projectService.GetByIdAsync(id);
+            var createdProject = await _projectProvider.CreateProject(project);
+            return CreatedAtAction(nameof(GetProjects), new { id = createdProject.Id }, createdProject);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<GetProjectDetailDto>> GetProject(int id)
+        {
+            var project = await _projectProvider.GetProjectDetail(id);
 
             if (project == null)
             {
@@ -38,39 +51,18 @@ namespace HighwayTransportation.Controllers
             return Ok(project);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Project>> CreateProject(Project project)
-        {
-            await _projectService.AddAsync(project);
-            return CreatedAtAction(nameof(GetProject), new { id = project.Id }, project);
-        }
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProject(int id, Project project)
+        public async Task<IActionResult> UpdateProject(int id, UpdateProjectDto project)
         {
-            if (id != project.Id)
-            {
-                return BadRequest();
-            }
-
-            await _projectService.UpdateAsync(project);
-
-            return NoContent();
+            var projectEntity = await _projectProvider.UpdateProject(id, project);
+            return Ok(projectEntity);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProject(int id)
         {
-            var project = await _projectService.GetByIdAsync(id);
-
-            if (project == null)
-            {
-                return NotFound();
-            }
-
-            await _projectService.RemoveAsync(project);
-
-            return NoContent();
+            await _projectProvider.DeleteProject(id);
+            return Ok();
         }
     }
 }

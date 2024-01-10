@@ -25,7 +25,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Domain/HighwayTransportation.Domain.csproj": {
+                "projectPath": "/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Domain/HighwayTransportation.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
