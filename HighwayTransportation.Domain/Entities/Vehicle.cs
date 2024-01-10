@@ -13,7 +13,7 @@ namespace HighwayTransportation.Domain.Entities
         public Vehicle()
         {
             Drivers = new List<Employee>();
-
+            Company = new Company();
         }
         public string? Name { get; set; }
 
@@ -23,8 +23,7 @@ namespace HighwayTransportation.Domain.Entities
         public int ModelYear { get; set; }
         public DateTime TraficLicenseDate { get; set; }
         public List<Employee> Drivers { get; set; }
-
-        public Company? Company { get; set; }
+        public Company Company { get; set; }
 
     }
 }

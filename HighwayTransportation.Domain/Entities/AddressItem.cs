@@ -10,10 +10,15 @@ namespace HighwayTransportation.Domain.Entities
 {
     public class AddressItem : BaseEntity
     {
-        public string? Name { get; set; }
+        public AddressItem()
+        {
+            Name = "";
+            AddressItemType = AddressItemTypeEnum.Country;
+        }
+        public string Name { get; set; }
 
         public AddressItemTypeEnum AddressItemType { get; set; }
 
-        public AddressItem? Parent { get; set; }
+        public AddressItem Parent { get; set; }
     }
 }

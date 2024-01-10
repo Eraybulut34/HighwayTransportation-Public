@@ -10,29 +10,44 @@ namespace HighwayTransportation.Domain.Entities
 {
     public class Delivery : BaseEntity
     {
-        public CompanyAddress? CompanyAddress { get; set; }
+        public Delivery()
+        {
+            CompanyAddress = new CompanyAddress();
+            Company = new Company();
+            Vehicle = new Vehicle();
+            Driver = new Employee();
+            DeliveryDate = DateTime.Now;
+            DeliveryTime = DateTime.Now;
+            DeliveryTimeEnd = DateTime.Now;
+            DeliveryNote = "";
+            DeliveryNumber = "";
+            DocumentNumber = "";
+            DeliveryType = DeliveryTypeEnum.Unknown;
+            Project = new Project();
+        }
+        public CompanyAddress CompanyAddress { get; set; }
 
-        public Company? Company { get; set; }
+        public Company Company { get; set; }
 
-        public Vehicle? Vehicle { get; set; }
+        public Vehicle Vehicle { get; set; }
 
-        public Employee? Driver { get; set; }
+        public Employee Driver { get; set; }
 
         public DateTime DeliveryDate { get; set; }
 
-        public DateTime? DeliveryTime { get; set; }
+        public DateTime DeliveryTime { get; set; }
 
-        public DateTime? DeliveryTimeEnd { get; set; }
+        public DateTime DeliveryTimeEnd { get; set; }
 
-        public string? DeliveryNote { get; set; }
+        public string DeliveryNote { get; set; }
 
-        public string? DeliveryNumber { get; set; }
+        public string DeliveryNumber { get; set; }
 
-        public string? DocumentNumber { get; set; }
+        public string DocumentNumber { get; set; }
 
         public DeliveryTypeEnum DeliveryType { get; set; }
 
-        public Project? Project { get; set; }
+        public Project Project { get; set; }
 
     }
 }

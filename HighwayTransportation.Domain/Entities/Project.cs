@@ -11,9 +11,20 @@ namespace HighwayTransportation.Domain.Entities
     public class Project : IEntity
     {
 
-        public string? Name { get; set; }
+        public Project()
+        {
+            Name = "";
+            Description = "";
+            Payments = new List<Payment>();
+            ProjectEmployees = new List<Employee>();
+            ProjectAddresses = new List<CompanyAddress>();
+            Vehicles = new List<Vehicle>();
+            Company = new Company();
+        }
 
-        public string? Description { get; set; }
+        public string Name { get; set; }
+
+        public string Description { get; set; }
 
         public DateTime StartDate { get; set; }
 
@@ -21,15 +32,15 @@ namespace HighwayTransportation.Domain.Entities
 
         public ProjectStatusEnum ProjectStatus { get; set; }
 
-        public Company? Company { get; set; }
+        public Company Company { get; set; }
 
-        public List<Payment>? Payments { get; set; }
+        public List<Payment> Payments { get; set; }
 
-        public List<Employee>? ProjectEmployees { get; set; }
+        public List<Employee> ProjectEmployees { get; set; }
 
-        public List<CompanyAddress>? ProjectAddresses { get; set; }
+        public List<CompanyAddress> ProjectAddresses { get; set; }
 
-        public List<Vehicle>? Vehicles { get; set; }
+        public List<Vehicle> Vehicles { get; set; }
 
     }
 }
