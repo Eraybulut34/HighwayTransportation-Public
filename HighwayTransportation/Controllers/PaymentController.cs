@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 using HighwayTransportation.Domain.Entities;
 using HighwayTransportation.Services;
 using Microsoft.AspNetCore.Mvc;
+using HighwayTransportation.Providers;
+using Microsoft.OpenApi.Any;
+using HighwayTransportation.Core;
+using HighwayTransportation.Core.Dtos;
 
 namespace HighwayTransportation.Controllers
 {
@@ -11,24 +15,33 @@ namespace HighwayTransportation.Controllers
     [ApiController]
     public class PaymentController : ControllerBase
     {
-        private readonly IGenericService<Payment> _paymentService;
 
-        public PaymentController(IGenericService<Payment> paymentService)
+        private readonly PaymentProvider _paymentProvider;
+
+        public PaymentController(PaymentProvider paymentProvider)
         {
-            _paymentService = paymentService;
+            _paymentProvider = paymentProvider;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Payment>>> GetPayments()
+        [HttpGet]
+        public async Task<ActionResult<List<GetPaymentListDto>>> GetPayments()
         {
-            var payments = await _paymentService.GetAllAsync();
+            var payments = await _paymentProvider.GetPayments();
             return Ok(payments);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Payment>> GetPayment(int id)
+        [HttpPost]
+        public async Task<ActionResult<Payment>> CreatePayment(CreatePaymentDto payment)
         {
-            var payment = await _paymentService.GetByIdAsync(id);
+            var createdPayment = await _paymentProvider.CreatePayment(payment);
+            return CreatedAtAction(nameof(GetPayments), new { id = createdPayment.Id }, createdPayment);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<GetPaymentDetailDto>> GetPayment(int id)
+        {
+            var payment = await _paymentProvider.GetPaymentDetail(id);
 
             if (payment == null)
             {
@@ -38,39 +51,18 @@ namespace HighwayTransportation.Controllers
             return Ok(payment);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Payment>> CreatePayment(Payment payment)
-        {
-            await _paymentService.AddAsync(payment);
-            return CreatedAtAction(nameof(GetPayment), new { id = payment.Id }, payment);
-        }
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePayment(int id, Payment payment)
+        public async Task<IActionResult> UpdatePayment(int id, UpdatePaymentDto payment)
         {
-            if (id != payment.Id)
-            {
-                return BadRequest();
-            }
-
-            await _paymentService.UpdateAsync(payment);
-
-            return NoContent();
+            var paymentEntity = await _paymentProvider.UpdatePayment(id, payment);
+            return Ok(paymentEntity);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePayment(int id)
         {
-            var payment = await _paymentService.GetByIdAsync(id);
-
-            if (payment == null)
-            {
-                return NotFound();
-            }
-
-            await _paymentService.RemoveAsync(payment);
-
-            return NoContent();
+            await _paymentProvider.DeletePayment(id);
+            return Ok();
         }
     }
 }
