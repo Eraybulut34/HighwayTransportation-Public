@@ -24,7 +24,6 @@ namespace HighwayTransportation.Controllers
         }
 
         [HttpGet]
-        [HttpGet]
         public async Task<ActionResult<List<GetPaymentListDto>>> GetPayments()
         {
             var payments = await _paymentProvider.GetPayments();

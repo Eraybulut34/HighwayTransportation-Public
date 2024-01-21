@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 using HighwayTransportation.Domain.Entities;
 using HighwayTransportation.Services;
 using Microsoft.AspNetCore.Mvc;
+using HighwayTransportation.Providers;
+using Microsoft.OpenApi.Any;
+using HighwayTransportation.Core;
+using HighwayTransportation.Core.Dtos;
 
 namespace HighwayTransportation.Controllers
 {
@@ -11,67 +15,54 @@ namespace HighwayTransportation.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
-        private readonly IGenericService<Company> _companyService;
 
-        public CompanyController(IGenericService<Company> companyService)
+        private readonly CompanyProvider _companyProvider;
+
+        public CompanyController(CompanyProvider companyProvider)
         {
-            _companyService = companyService ?? throw new ArgumentNullException(nameof(companyService));
+            _companyProvider = companyProvider;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Company>>> GetCompanies()
+        [HttpGet]
+        public async Task<ActionResult<List<GetCompanyListDto>>> GetCompanys()
         {
-            var companies = await _companyService.GetAllAsync();
-            return Ok(companies);
+            var companys = await _companyProvider.GetCompanys();
+            return Ok(companys);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Company>> CreateCompany(CreateCompanyDto company)
+        {
+            var createdCompany = await _companyProvider.CreateCompany(company);
+            return CreatedAtAction(nameof(GetCompanys), new { id = createdCompany.Id }, createdCompany);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Company>> GetCompany(int id)
+        public async Task<ActionResult<GetCompanyDetailDto>> GetCompany(int id)
         {
-            var company = await _companyService.GetByIdAsync(id);
+            var company = await _companyProvider.GetCompanyDetail(id);
 
             if (company == null)
             {
                 return NotFound();
             }
 
-            return company;
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<Company>> PostCompany(Company company)
-        {
-            await _companyService.AddAsync(company);
-
-            return CreatedAtAction(nameof(GetCompany), new { id = company.Id }, company);
+            return Ok(company);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCompany(int id, Company company)
+        public async Task<IActionResult> UpdateCompany(int id, UpdateCompanyDto company)
         {
-            if (id != company.Id)
-            {
-                return BadRequest();
-            }
-
-            await _companyService.UpdateAsync(company);
-
-            return NoContent();
+            var companyEntity = await _companyProvider.UpdateCompany(id, company);
+            return Ok(companyEntity);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCompany(int id)
         {
-            var company = await _companyService.GetByIdAsync(id);
-
-            if (company == null)
-            {
-                return NotFound();
-            }
-
-            await _companyService.RemoveAsync(company);
-
-            return NoContent();
+            await _companyProvider.DeleteCompany(id);
+            return Ok();
         }
     }
 }

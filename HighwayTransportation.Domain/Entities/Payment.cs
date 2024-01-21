@@ -33,7 +33,6 @@ namespace HighwayTransportation.Domain.Entities
         public Company Company { get; set; }
 
 
-
         public Project Project { get; set; }
 
         public PaymentStatusEnum PaymentStatus { get; set; }

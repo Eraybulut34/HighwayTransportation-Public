@@ -10,7 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -32,10 +34,12 @@ builder.Services.AddScoped<IGenericService<Role>, GenericService<Role>>();
 builder.Services.AddScoped<VehicleService>();
 builder.Services.AddScoped<AppUserService>();
 builder.Services.AddScoped<ProjectService>();
+builder.Services.AddScoped<PaymentService>();
 builder.Services.AddScoped<IMapper, MapsterMapper.Mapper>();
 builder.Services.AddScoped<VehicleProvider>();
 builder.Services.AddScoped<AppUserProvider>();
 builder.Services.AddScoped<ProjectProvider>();
+builder.Services.AddScoped<PaymentProvider>();
 
 
 
@@ -49,6 +53,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
 
 app.UseHttpsRedirection();
 
