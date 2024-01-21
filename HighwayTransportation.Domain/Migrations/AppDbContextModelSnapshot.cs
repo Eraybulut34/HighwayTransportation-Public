@@ -65,9 +65,10 @@ namespace HighwayTransportation.Domain.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("ParentId")
+                    b.Property<int>("ParentId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -100,6 +101,7 @@ namespace HighwayTransportation.Domain.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ExternalCode")
@@ -112,21 +114,25 @@ namespace HighwayTransportation.Domain.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("NoneDeleted")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
                     b.Property<string>("Surname")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("UpdatedBy")
@@ -148,31 +154,57 @@ namespace HighwayTransportation.Domain.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("ExternalCode")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("NoneDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
 
                     b.Property<string>("TaxNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<List<string>>("WebSites")
+                        .IsRequired()
                         .HasColumnType("text[]");
 
                     b.HasKey("Id");
@@ -189,15 +221,16 @@ namespace HighwayTransportation.Domain.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("CityId")
+                    b.Property<int>("CityId")
                         .HasColumnType("integer");
 
                     b.Property<int?>("CompanyId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int>("CountryId")
                         .HasColumnType("integer");
 
                     b.Property<int>("CreatedBy")
@@ -209,13 +242,14 @@ namespace HighwayTransportation.Domain.Migrations
                     b.Property<DateTime>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("DistrictId")
+                    b.Property<int>("DistrictId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("ProjectId")
@@ -244,10 +278,10 @@ namespace HighwayTransportation.Domain.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CompanyAddressId")
+                    b.Property<int>("CompanyAddressId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("CompanyId")
+                    b.Property<int>("CompanyId")
                         .HasColumnType("integer");
 
                     b.Property<int>("CreatedBy")
@@ -263,33 +297,36 @@ namespace HighwayTransportation.Domain.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("DeliveryNote")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DeliveryNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("DeliveryTime")
+                    b.Property<DateTime>("DeliveryTime")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("DeliveryTimeEnd")
+                    b.Property<DateTime>("DeliveryTimeEnd")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("DeliveryType")
                         .HasColumnType("integer");
 
                     b.Property<string>("DocumentNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("DriverId")
+                    b.Property<int>("DriverId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("ProjectId")
+                    b.Property<int>("ProjectId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("VehicleId")
+                    b.Property<int>("VehicleId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -319,6 +356,7 @@ namespace HighwayTransportation.Domain.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int[]>("BloodGroups")
+                        .IsRequired()
                         .HasColumnType("integer[]");
 
                     b.Property<int?>("CompanyId")
@@ -334,39 +372,45 @@ namespace HighwayTransportation.Domain.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("EmployeeType")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Gender")
                         .HasColumnType("integer");
 
                     b.Property<string>("IdentityNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int[]>("LicenseTypes")
+                        .IsRequired()
                         .HasColumnType("integer[]");
 
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("ProjectId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime?>("StartDate")
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("SurName")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("WorkingType")
@@ -392,10 +436,10 @@ namespace HighwayTransportation.Domain.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("CompanyId")
+                    b.Property<int>("CompanyId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
@@ -404,25 +448,47 @@ namespace HighwayTransportation.Domain.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("DriverId")
+                    b.Property<int>("DriverId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("ExternalCode")
+                        .HasColumnType("text");
 
-                    b.Property<int?>("ProjectId")
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("NoneDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
                         .HasColumnType("integer");
 
                     b.Property<int>("Type")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("VehicleId")
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("VehicleId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -449,23 +515,36 @@ namespace HighwayTransportation.Domain.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("CompanyId")
+                    b.Property<int>("CompanyId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int?>("CreatedBy")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("ExternalCode")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("NoneDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("timestamp with time zone");
@@ -476,8 +555,20 @@ namespace HighwayTransportation.Domain.Migrations
                     b.Property<int>("PaymentStatus")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("ProjectId")
+                    b.Property<int>("PaymentType")
                         .HasColumnType("integer");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -496,7 +587,7 @@ namespace HighwayTransportation.Domain.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CompanyId")
+                    b.Property<int>("CompanyId")
                         .HasColumnType("integer");
 
                     b.Property<int?>("CreatedBy")
@@ -512,6 +603,7 @@ namespace HighwayTransportation.Domain.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("EndDate")
@@ -527,6 +619,7 @@ namespace HighwayTransportation.Domain.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("NoneDeleted")
@@ -562,7 +655,7 @@ namespace HighwayTransportation.Domain.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CompanyId")
+                    b.Property<int>("CompanyId")
                         .HasColumnType("integer");
 
                     b.Property<int?>("CreatedBy")
@@ -648,7 +741,9 @@ namespace HighwayTransportation.Domain.Migrations
 
                     b.HasOne("HighwayTransportation.Domain.Entities.AddressItem", "Parent")
                         .WithMany()
-                        .HasForeignKey("ParentId");
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Parent");
                 });
@@ -657,7 +752,9 @@ namespace HighwayTransportation.Domain.Migrations
                 {
                     b.HasOne("HighwayTransportation.Domain.Entities.AddressItem", "City")
                         .WithMany()
-                        .HasForeignKey("CityId");
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Company", null)
                         .WithMany("Addresses")
@@ -665,11 +762,15 @@ namespace HighwayTransportation.Domain.Migrations
 
                     b.HasOne("HighwayTransportation.Domain.Entities.AddressItem", "Country")
                         .WithMany()
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.AddressItem", "District")
                         .WithMany()
-                        .HasForeignKey("DistrictId");
+                        .HasForeignKey("DistrictId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Project", null)
                         .WithMany("ProjectAddresses")
@@ -686,23 +787,33 @@ namespace HighwayTransportation.Domain.Migrations
                 {
                     b.HasOne("HighwayTransportation.Domain.Entities.CompanyAddress", "CompanyAddress")
                         .WithMany()
-                        .HasForeignKey("CompanyAddressId");
+                        .HasForeignKey("CompanyAddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Company", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Employee", "Driver")
                         .WithMany()
-                        .HasForeignKey("DriverId");
+                        .HasForeignKey("DriverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Project", "Project")
                         .WithMany()
-                        .HasForeignKey("ProjectId");
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
-                        .HasForeignKey("VehicleId");
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Company");
 
@@ -730,19 +841,27 @@ namespace HighwayTransportation.Domain.Migrations
                 {
                     b.HasOne("HighwayTransportation.Domain.Entities.Company", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Employee", "Driver")
                         .WithMany()
-                        .HasForeignKey("DriverId");
+                        .HasForeignKey("DriverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Project", "Project")
                         .WithMany()
-                        .HasForeignKey("ProjectId");
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
-                        .HasForeignKey("VehicleId");
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Company");
 
@@ -757,11 +876,15 @@ namespace HighwayTransportation.Domain.Migrations
                 {
                     b.HasOne("HighwayTransportation.Domain.Entities.Company", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Project", "Project")
                         .WithMany("Payments")
-                        .HasForeignKey("ProjectId");
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Company");
 
@@ -772,7 +895,9 @@ namespace HighwayTransportation.Domain.Migrations
                 {
                     b.HasOne("HighwayTransportation.Domain.Entities.Company", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Company");
                 });
@@ -781,7 +906,9 @@ namespace HighwayTransportation.Domain.Migrations
                 {
                     b.HasOne("HighwayTransportation.Domain.Entities.Company", "Company")
                         .WithMany("Vehicles")
-                        .HasForeignKey("CompanyId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HighwayTransportation.Domain.Entities.Project", null)
                         .WithMany("Vehicles")

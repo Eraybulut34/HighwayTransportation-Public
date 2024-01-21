@@ -8,11 +8,39 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HighwayTransportation.Domain.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class INITTTEST : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AppUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Surname = table.Column<string>(type: "text", nullable: false),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
+                    Password = table.Column<string>(type: "text", nullable: false),
+                    CreatedBy = table.Column<int>(type: "integer", nullable: true),
+                    UpdatedBy = table.Column<int>(type: "integer", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
+                    DeletedBy = table.Column<int>(type: "integer", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    NoneDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    ExternalCode = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppUsers", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Companies",
                 columns: table => new
@@ -21,13 +49,20 @@ namespace HighwayTransportation.Domain.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     TaxNumber = table.Column<string>(type: "text", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
-                    Email = table.Column<string>(type: "text", nullable: true),
-                    WebSites = table.Column<List<string>>(type: "text[]", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    WebSites = table.Column<List<string>>(type: "text[]", nullable: false),
+                    CreatedBy = table.Column<int>(type: "integer", nullable: true),
+                    UpdatedBy = table.Column<int>(type: "integer", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
+                    DeletedBy = table.Column<int>(type: "integer", nullable: true),
                     DeletedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CreatedBy = table.Column<int>(type: "integer", nullable: false)
+                    NoneDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    ExternalCode = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -41,15 +76,22 @@ namespace HighwayTransportation.Domain.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: false),
                     StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     ProjectStatus = table.Column<int>(type: "integer", nullable: false),
                     CompanyId = table.Column<int>(type: "integer", nullable: false),
+                    CreatedBy = table.Column<int>(type: "integer", nullable: true),
+                    UpdatedBy = table.Column<int>(type: "integer", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
+                    DeletedBy = table.Column<int>(type: "integer", nullable: true),
                     DeletedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CreatedBy = table.Column<int>(type: "integer", nullable: false)
+                    NoneDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    ExternalCode = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -63,33 +105,6 @@ namespace HighwayTransportation.Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vehicles",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Plate = table.Column<string>(type: "text", nullable: false),
-                    LicenseNumber = table.Column<string>(type: "text", nullable: false),
-                    ModelYear = table.Column<int>(type: "integer", nullable: false),
-                    TraficLicenseDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CompanyId = table.Column<int>(type: "integer", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    DeletedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CreatedBy = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Vehicles", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Vehicles_Companies_CompanyId",
-                        column: x => x.CompanyId,
-                        principalTable: "Companies",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Employees",
                 columns: table => new
                 {
@@ -98,15 +113,15 @@ namespace HighwayTransportation.Domain.Migrations
                     Name = table.Column<string>(type: "text", nullable: false),
                     SurName = table.Column<string>(type: "text", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    LicenseTypes = table.Column<int[]>(type: "integer[]", nullable: true),
-                    BloodGroups = table.Column<int[]>(type: "integer[]", nullable: true),
+                    LicenseTypes = table.Column<int[]>(type: "integer[]", nullable: false),
+                    BloodGroups = table.Column<int[]>(type: "integer[]", nullable: false),
                     Gender = table.Column<int>(type: "integer", nullable: false),
                     WorkingType = table.Column<int>(type: "integer", nullable: false),
-                    IdentityNumber = table.Column<string>(type: "text", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
-                    Email = table.Column<string>(type: "text", nullable: true),
-                    StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    IdentityNumber = table.Column<string>(type: "text", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     EmployeeType = table.Column<int>(type: "integer", nullable: false),
                     CompanyId = table.Column<int>(type: "integer", nullable: true),
                     ProjectId = table.Column<int>(type: "integer", nullable: true),
@@ -136,17 +151,25 @@ namespace HighwayTransportation.Domain.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Description = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: false),
                     Amount = table.Column<int>(type: "integer", nullable: false),
                     PaymentDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     PaymentMethod = table.Column<int>(type: "integer", nullable: false),
                     CompanyId = table.Column<int>(type: "integer", nullable: false),
-                    ProjectId = table.Column<int>(type: "integer", nullable: true),
+                    ProjectId = table.Column<int>(type: "integer", nullable: false),
                     PaymentStatus = table.Column<int>(type: "integer", nullable: false),
+                    PaymentType = table.Column<int>(type: "integer", nullable: false),
+                    CreatedBy = table.Column<int>(type: "integer", nullable: true),
+                    UpdatedBy = table.Column<int>(type: "integer", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
+                    DeletedBy = table.Column<int>(type: "integer", nullable: true),
                     DeletedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CreatedBy = table.Column<int>(type: "integer", nullable: false)
+                    NoneDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    ExternalCode = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -161,6 +184,48 @@ namespace HighwayTransportation.Domain.Migrations
                         name: "FK_Payments_Projects_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Projects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Vehicles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Plate = table.Column<string>(type: "text", nullable: true),
+                    LicenseNumber = table.Column<string>(type: "text", nullable: true),
+                    ModelYear = table.Column<int>(type: "integer", nullable: false),
+                    TraficLicenseDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CompanyId = table.Column<int>(type: "integer", nullable: false),
+                    ProjectId = table.Column<int>(type: "integer", nullable: true),
+                    CreatedBy = table.Column<int>(type: "integer", nullable: true),
+                    UpdatedBy = table.Column<int>(type: "integer", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
+                    DeletedBy = table.Column<int>(type: "integer", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    NoneDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    ExternalCode = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vehicles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Vehicles_Companies_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "Companies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Vehicles_Projects_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Projects",
                         principalColumn: "Id");
                 });
 
@@ -172,7 +237,7 @@ namespace HighwayTransportation.Domain.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     AddressItemType = table.Column<int>(type: "integer", nullable: false),
-                    ParentId = table.Column<int>(type: "integer", nullable: true),
+                    ParentId = table.Column<int>(type: "integer", nullable: false),
                     EmployeeId = table.Column<int>(type: "integer", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -186,7 +251,8 @@ namespace HighwayTransportation.Domain.Migrations
                         name: "FK_AddressItems_AddressItems_ParentId",
                         column: x => x.ParentId,
                         principalTable: "AddressItems",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AddressItems_Employees_EmployeeId",
                         column: x => x.EmployeeId,
@@ -224,18 +290,25 @@ namespace HighwayTransportation.Domain.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Description = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: false),
                     Amount = table.Column<int>(type: "integer", nullable: false),
                     Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    DriverId = table.Column<int>(type: "integer", nullable: true),
-                    VehicleId = table.Column<int>(type: "integer", nullable: true),
-                    CompanyId = table.Column<int>(type: "integer", nullable: true),
-                    ProjectId = table.Column<int>(type: "integer", nullable: true),
+                    DriverId = table.Column<int>(type: "integer", nullable: false),
+                    VehicleId = table.Column<int>(type: "integer", nullable: false),
+                    CompanyId = table.Column<int>(type: "integer", nullable: false),
+                    ProjectId = table.Column<int>(type: "integer", nullable: false),
                     Type = table.Column<int>(type: "integer", nullable: false),
+                    CreatedBy = table.Column<int>(type: "integer", nullable: true),
+                    UpdatedBy = table.Column<int>(type: "integer", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
+                    DeletedBy = table.Column<int>(type: "integer", nullable: true),
                     DeletedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CreatedBy = table.Column<int>(type: "integer", nullable: false)
+                    NoneDeleted = table.Column<bool>(type: "boolean", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    ExternalCode = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -244,22 +317,26 @@ namespace HighwayTransportation.Domain.Migrations
                         name: "FK_Expenses_Companies_CompanyId",
                         column: x => x.CompanyId,
                         principalTable: "Companies",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Expenses_Employees_DriverId",
                         column: x => x.DriverId,
                         principalTable: "Employees",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Expenses_Projects_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Projects",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Expenses_Vehicles_VehicleId",
                         column: x => x.VehicleId,
                         principalTable: "Vehicles",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -324,11 +401,11 @@ namespace HighwayTransportation.Domain.Migrations
                     VehicleId = table.Column<int>(type: "integer", nullable: false),
                     DriverId = table.Column<int>(type: "integer", nullable: false),
                     DeliveryDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    DeliveryTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    DeliveryTimeEnd = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    DeliveryNote = table.Column<string>(type: "text", nullable: true),
-                    DeliveryNumber = table.Column<string>(type: "text", nullable: true),
-                    DocumentNumber = table.Column<string>(type: "text", nullable: true),
+                    DeliveryTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DeliveryTimeEnd = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DeliveryNote = table.Column<string>(type: "text", nullable: false),
+                    DeliveryNumber = table.Column<string>(type: "text", nullable: false),
+                    DocumentNumber = table.Column<string>(type: "text", nullable: false),
                     DeliveryType = table.Column<int>(type: "integer", nullable: false),
                     ProjectId = table.Column<int>(type: "integer", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -485,11 +562,19 @@ namespace HighwayTransportation.Domain.Migrations
                 name: "IX_Vehicles_CompanyId",
                 table: "Vehicles",
                 column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vehicles_ProjectId",
+                table: "Vehicles",
+                column: "ProjectId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AppUsers");
+
             migrationBuilder.DropTable(
                 name: "Deliveries");
 

@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace HighwayTransportation.Domain.Entities
 {
-    public class Company : BaseEntity
+    public class Company : IEntity
     {
         public Company()
         {
+            Id = 0;
             Name = "";
             TaxNumber = "";
             Addresses = new List<CompanyAddress>();

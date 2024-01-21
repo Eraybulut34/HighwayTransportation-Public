@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HighwayTransportation.Domain.Entities
 {
-    public class Expense : BaseEntity
+    public class Expense : IEntity
     {
         public Expense()
         {

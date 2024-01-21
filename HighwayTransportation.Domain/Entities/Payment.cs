@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HighwayTransportation.Domain.Entities
 {
-    public class Payment : BaseEntity
+    public class Payment : IEntity
     {
         public Payment()
         {
@@ -19,6 +19,7 @@ namespace HighwayTransportation.Domain.Entities
             Company = new Company();
             Project = new Project();
             PaymentStatus = PaymentStatusEnum.Paid;
+            PaymentType = PaymentTypeEnum.Other;
         }
 
         public string Description { get; set; }
@@ -31,9 +32,13 @@ namespace HighwayTransportation.Domain.Entities
 
         public Company Company { get; set; }
 
+
+
         public Project Project { get; set; }
 
         public PaymentStatusEnum PaymentStatus { get; set; }
+
+        public PaymentTypeEnum PaymentType { get; set; }
 
     }
 }
