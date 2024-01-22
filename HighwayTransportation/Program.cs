@@ -20,7 +20,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("SqlConnection")));
 
-builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddScoped<IGenericService<AppUser>, GenericService<AppUser>>();
 builder.Services.AddScoped<IGenericService<AddressItem>, GenericService<AddressItem>>();
 builder.Services.AddScoped<IGenericService<Company>, GenericService<Company>>();
@@ -35,11 +34,13 @@ builder.Services.AddScoped<VehicleService>();
 builder.Services.AddScoped<AppUserService>();
 builder.Services.AddScoped<ProjectService>();
 builder.Services.AddScoped<PaymentService>();
+builder.Services.AddScoped<CompanyService>();
 builder.Services.AddScoped<IMapper, MapsterMapper.Mapper>();
 builder.Services.AddScoped<VehicleProvider>();
 builder.Services.AddScoped<AppUserProvider>();
 builder.Services.AddScoped<ProjectProvider>();
 builder.Services.AddScoped<PaymentProvider>();
+builder.Services.AddScoped<CompanyProvider>();
 
 
 
