@@ -35,12 +35,16 @@ builder.Services.AddScoped<AppUserService>();
 builder.Services.AddScoped<ProjectService>();
 builder.Services.AddScoped<PaymentService>();
 builder.Services.AddScoped<CompanyService>();
+builder.Services.AddScoped<ExpenseService>();
+builder.Services.AddScoped<EmployeeService>();
 builder.Services.AddScoped<IMapper, MapsterMapper.Mapper>();
 builder.Services.AddScoped<VehicleProvider>();
 builder.Services.AddScoped<AppUserProvider>();
 builder.Services.AddScoped<ProjectProvider>();
 builder.Services.AddScoped<PaymentProvider>();
 builder.Services.AddScoped<CompanyProvider>();
+builder.Services.AddScoped<ExpenseProvider>();
+builder.Services.AddScoped<EmployeeProvider>();
 
 
 

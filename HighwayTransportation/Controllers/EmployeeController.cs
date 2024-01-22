@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 using HighwayTransportation.Domain.Entities;
 using HighwayTransportation.Services;
 using Microsoft.AspNetCore.Mvc;
+using HighwayTransportation.Providers;
+using Microsoft.OpenApi.Any;
+using HighwayTransportation.Core;
+using HighwayTransportation.Core.Dtos;
 
 namespace HighwayTransportation.Controllers
 {
@@ -11,24 +15,33 @@ namespace HighwayTransportation.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private readonly IGenericService<Employee> _employeeService;
 
-        public EmployeeController(IGenericService<Employee> employeeService)
+        private readonly EmployeeProvider _employeeProvider;
+
+        public EmployeeController(EmployeeProvider employeeProvider)
         {
-            _employeeService = employeeService;
+            _employeeProvider = employeeProvider;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
+        [HttpGet]
+        public async Task<ActionResult<List<GetEmployeeListDto>>> GetEmployees()
         {
-            var employees = await _employeeService.GetAllAsync();
+            var employees = await _employeeProvider.GetEmployees();
             return Ok(employees);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Employee>> GetEmployee(int id)
+        [HttpPost]
+        public async Task<ActionResult<Employee>> CreateEmployee(CreateEmployeeDto employee)
         {
-            var employee = await _employeeService.GetByIdAsync(id);
+            var createdEmployee = await _employeeProvider.CreateEmployee(employee);
+            return CreatedAtAction(nameof(GetEmployees), new { id = createdEmployee.Id }, createdEmployee);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<GetEmployeeDetailDto>> GetEmployee(int id)
+        {
+            var employee = await _employeeProvider.GetEmployeeDetail(id);
 
             if (employee == null)
             {
@@ -38,39 +51,18 @@ namespace HighwayTransportation.Controllers
             return Ok(employee);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
-        {
-            await _employeeService.AddAsync(employee);
-            return CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, employee);
-        }
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEmployee(int id, Employee employee)
+        public async Task<IActionResult> UpdateEmployee(int id, UpdateEmployeeDto employee)
         {
-            if (id != employee.Id)
-            {
-                return BadRequest();
-            }
-
-            await _employeeService.UpdateAsync(employee);
-
-            return NoContent();
+            var employeeEntity = await _employeeProvider.UpdateEmployee(id, employee);
+            return Ok(employeeEntity);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
-            var employee = await _employeeService.GetByIdAsync(id);
-
-            if (employee == null)
-            {
-                return NotFound();
-            }
-
-            await _employeeService.RemoveAsync(employee);
-
-            return NoContent();
+            await _employeeProvider.DeleteEmployee(id);
+            return Ok();
         }
     }
 }

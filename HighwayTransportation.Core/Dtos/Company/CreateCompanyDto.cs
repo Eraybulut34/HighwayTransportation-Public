@@ -3,7 +3,8 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HighwayTransportation.Domain.Entities
+namespace HighwayTransportation.Core.Dtos
+
 {
     public class CreateCompanyDto
     {

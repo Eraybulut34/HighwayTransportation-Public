@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace HighwayTransportation.Domain.Entities
 {
-    public class Employee : BaseEntity
+    public class Employee : IEntity
     {
         public Employee(){
             Name = "";
             SurName = "";
             Vehicles = new List<Vehicle>();
-            BloodGroups = new List<BloodGroupEnum>();
+            BloodGroup = BloodGroupEnum.ONegative;
             LicenseTypes = new List<DriverLicenseTypesEnum>();
             Addresses = new List<AddressItem>();
             IdentityNumber = "";
@@ -28,7 +28,8 @@ namespace HighwayTransportation.Domain.Entities
         public DateTime BirthDate { get; set; }
         public List<DriverLicenseTypesEnum> LicenseTypes { get; set; }
         public List<Vehicle> Vehicles { get; set; }
-        public List<BloodGroupEnum> BloodGroups { get; set; }
+        public BloodGroupEnum BloodGroup { get; set; }
+
 
         public GenderEnum Gender { get; set; }
 

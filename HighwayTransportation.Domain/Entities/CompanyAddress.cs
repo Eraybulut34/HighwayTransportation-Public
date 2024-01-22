@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HighwayTransportation.Domain.Entities
 {
-    public class CompanyAddress : BaseEntity
+    public class CompanyAddress : IEntity
     {
         public CompanyAddress()
         {

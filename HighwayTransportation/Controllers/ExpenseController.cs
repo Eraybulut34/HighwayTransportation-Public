@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using HighwayTransportation.Domain.Entities;
 using HighwayTransportation.Services;
+using Microsoft.AspNetCore.Mvc;
+using HighwayTransportation.Providers;
+using Microsoft.OpenApi.Any;
+using HighwayTransportation.Core;
+using HighwayTransportation.Core.Dtos;
 
 namespace HighwayTransportation.Controllers
 {
@@ -11,24 +15,33 @@ namespace HighwayTransportation.Controllers
     [ApiController]
     public class ExpenseController : ControllerBase
     {
-        private readonly IGenericService<Expense> _expenseService;
 
-        public ExpenseController(IGenericService<Expense> expenseService)
+        private readonly ExpenseProvider _expenseProvider;
+
+        public ExpenseController(ExpenseProvider expenseProvider)
         {
-            _expenseService = expenseService;
+            _expenseProvider = expenseProvider;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Expense>>> GetAllExpenses()
+        [HttpGet]
+        public async Task<ActionResult<List<GetExpenseListDto>>> GetExpenses()
         {
-            var expenses = await _expenseService.GetAllAsync();
+            var expenses = await _expenseProvider.GetExpenses();
             return Ok(expenses);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Expense>> GetExpenseById(int id)
+        [HttpPost]
+        public async Task<ActionResult<Expense>> CreateExpense(CreateExpenseDto expense)
         {
-            var expense = await _expenseService.GetByIdAsync(id);
+            var createdExpense = await _expenseProvider.CreateExpense(expense);
+            return CreatedAtAction(nameof(GetExpenses), new { id = createdExpense.Id }, createdExpense);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<GetExpenseDetailDto>> GetExpense(int id)
+        {
+            var expense = await _expenseProvider.GetExpenseDetail(id);
 
             if (expense == null)
             {
@@ -38,39 +51,18 @@ namespace HighwayTransportation.Controllers
             return Ok(expense);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Expense>> CreateExpense(Expense expense)
-        {
-            await _expenseService.AddAsync(expense);
-            return CreatedAtAction(nameof(GetExpenseById), new { id = expense.Id }, expense);
-        }
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateExpense(int id, Expense expense)
+        public async Task<IActionResult> UpdateExpense(int id, UpdateExpenseDto expense)
         {
-            if (id != expense.Id)
-            {
-                return BadRequest();
-            }
-
-            await _expenseService.UpdateAsync(expense);
-
-            return NoContent();
+            var expenseEntity = await _expenseProvider.UpdateExpense(id, expense);
+            return Ok(expenseEntity);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteExpense(int id)
         {
-            var expense = await _expenseService.GetByIdAsync(id);
-
-            if (expense == null)
-            {
-                return NotFound();
-            }
-
-            await _expenseService.RemoveAsync(expense);
-
-            return NoContent();
+            await _expenseProvider.DeleteExpense(id);
+            return Ok();
         }
     }
 }
