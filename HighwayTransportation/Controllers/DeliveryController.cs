@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 using HighwayTransportation.Domain.Entities;
 using HighwayTransportation.Services;
 using Microsoft.AspNetCore.Mvc;
+using HighwayTransportation.Providers;
+using Microsoft.OpenApi.Any;
+using HighwayTransportation.Core;
+using HighwayTransportation.Core.Dtos;
 
 namespace HighwayTransportation.Controllers
 {
@@ -11,24 +15,33 @@ namespace HighwayTransportation.Controllers
     [ApiController]
     public class DeliveryController : ControllerBase
     {
-        private readonly IGenericService<Delivery> _deliveryService;
 
-        public DeliveryController(IGenericService<Delivery> deliveryService)
+        private readonly DeliveryProvider _deliveryProvider;
+
+        public DeliveryController(DeliveryProvider deliveryProvider)
         {
-            _deliveryService = deliveryService;
+            _deliveryProvider = deliveryProvider;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Delivery>>> GetDeliveries()
+        [HttpGet]
+        public async Task<ActionResult<List<GetDeliveryListDto>>> GetDeliverys()
         {
-            var deliveries = await _deliveryService.GetAllAsync();
-            return Ok(deliveries);
+            var deliverys = await _deliveryProvider.GetDeliverys();
+            return Ok(deliverys);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Delivery>> CreateDelivery(CreateDeliveryDto delivery)
+        {
+            var createdDelivery = await _deliveryProvider.CreateDelivery(delivery);
+            return CreatedAtAction(nameof(GetDeliverys), new { id = createdDelivery.Id }, createdDelivery);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Delivery>> GetDelivery(int id)
+        public async Task<ActionResult<GetDeliveryDetailDto>> GetDelivery(int id)
         {
-            var delivery = await _deliveryService.GetByIdAsync(id);
+            var delivery = await _deliveryProvider.GetDeliveryDetail(id);
 
             if (delivery == null)
             {
@@ -38,39 +51,18 @@ namespace HighwayTransportation.Controllers
             return Ok(delivery);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Delivery>> CreateDelivery(Delivery delivery)
-        {
-            await _deliveryService.AddAsync(delivery);
-            return CreatedAtAction(nameof(GetDelivery), new { id = delivery.Id }, delivery);
-        }
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateDelivery(int id, Delivery delivery)
+        public async Task<IActionResult> UpdateDelivery(int id, UpdateDeliveryDto delivery)
         {
-            if (id != delivery.Id)
-            {
-                return BadRequest();
-            }
-
-            await _deliveryService.UpdateAsync(delivery);
-
-            return NoContent();
+            var deliveryEntity = await _deliveryProvider.UpdateDelivery(id, delivery);
+            return Ok(deliveryEntity);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDelivery(int id)
         {
-            var delivery = await _deliveryService.GetByIdAsync(id);
-
-            if (delivery == null)
-            {
-                return NotFound();
-            }
-
-            await _deliveryService.RemoveAsync(delivery);
-
-            return NoContent();
+            await _deliveryProvider.DeleteDelivery(id);
+            return Ok();
         }
     }
 }
