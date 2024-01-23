@@ -15,7 +15,7 @@ namespace HighwayTransportation.Domain.Entities
             Description = "";
             Amount = 0;
             Date = DateTime.Now;
-            Driver = new Employee();
+            Employee = new Employee();
             Vehicle = new Vehicle();
             Company = new Company();
             Project = new Project();
@@ -28,7 +28,7 @@ namespace HighwayTransportation.Domain.Entities
 
         public DateTime Date { get; set; }
 
-        public Employee Driver { get; set; }
+        public Employee Employee { get; set; }
 
         public Vehicle Vehicle { get; set; }
 

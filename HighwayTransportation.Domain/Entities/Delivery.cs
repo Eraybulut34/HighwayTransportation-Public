@@ -15,7 +15,7 @@ namespace HighwayTransportation.Domain.Entities
             CompanyAddress = new CompanyAddress();
             Company = new Company();
             Vehicle = new Vehicle();
-            Driver = new Employee();
+            Employee = new Employee();
             DeliveryDate = DateTime.Now;
             DeliveryTime = DateTime.Now;
             DeliveryTimeEnd = DateTime.Now;
@@ -31,7 +31,7 @@ namespace HighwayTransportation.Domain.Entities
 
         public Vehicle Vehicle { get; set; }
 
-        public Employee Driver { get; set; }
+        public Employee Employee { get; set; }
 
         public DateTime DeliveryDate { get; set; }
 

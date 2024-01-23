@@ -17,7 +17,7 @@ namespace HighwayTransportation.Core.Dtos
 
         public DateTime Date { get; set; }
 
-        public GetEmployeeListDto Driver { get; set; }
+        public GetEmployeeListDto Employee { get; set; }
 
         public GetCompanyListDto Company { get; set; }
 

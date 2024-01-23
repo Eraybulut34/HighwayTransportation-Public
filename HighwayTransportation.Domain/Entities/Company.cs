@@ -16,7 +16,7 @@ namespace HighwayTransportation.Domain.Entities
             TaxNumber = "";
             Addresses = new List<CompanyAddress>();
             Vehicles = new List<Vehicle>();
-            Drivers = new List<Employee>();
+            Employees = new List<Employee>();
             PhoneNumber = "";
             Email = "";
             WebSites = new List<string>();
@@ -28,7 +28,7 @@ namespace HighwayTransportation.Domain.Entities
 
         public List<Vehicle> Vehicles { get; set; }
 
-        public List<Employee> Drivers { get; set; }
+        public List<Employee> Employees { get; set; }
 
         public string PhoneNumber { get; set; }
 

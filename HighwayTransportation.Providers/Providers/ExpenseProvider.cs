@@ -13,12 +13,31 @@ namespace HighwayTransportation.Providers
     public class ExpenseProvider : ProviderBase<ExpenseService, Expense>
     {
         IMapper _mapper;
+
+
         ExpenseService _expenseService;
 
-        public ExpenseProvider(ExpenseService expenseService, IMapper mapper) : base(expenseService)
+        CompanyService _companyService;
+
+        ProjectService _projectService;
+
+        EmployeeService _employeeService;
+
+        VehicleService _vehicleService;
+
+        public ExpenseProvider(ExpenseService expenseService,
+        CompanyService companyService,
+        ProjectService projectService,
+        EmployeeService employeeService,
+        VehicleService vehicleService,
+         IMapper mapper) : base(expenseService)
         {
             _mapper = mapper;
             _expenseService = expenseService;
+            _companyService = companyService;
+            _projectService = projectService;
+            _employeeService = employeeService;
+            _vehicleService = vehicleService;
         }
 
         public async Task<List<GetExpenseListDto>> GetExpenses()
@@ -31,9 +50,13 @@ namespace HighwayTransportation.Providers
         public async Task<Expense> CreateExpense(CreateExpenseDto expense)
         {
             var expenseEntity = _mapper.Map<Expense>(expense);
+            expenseEntity.Company = await _companyService.GetByIdAsync(expense.CompanyId);
+            expenseEntity.Project = await _projectService.GetByIdAsync(expense.ProjectId);
+            expenseEntity.Employee = await _employeeService.GetByIdAsync(expense.EmployeeId);
+            expenseEntity.Vehicle = await _vehicleService.GetByIdAsync(expense.VehicleId);
             await _expenseService.AddAsync(expenseEntity);
             return expenseEntity;
-            
+
         }
 
         public async Task<GetExpenseDetailDto> GetExpenseDetail(int id)

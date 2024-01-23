@@ -14,7 +14,7 @@ namespace HighwayTransportation.Domain.Entities
 
         public Vehicle Vehicle { get; set; }
 
-        public Employee Driver { get; set; }
+        public Employee Employee { get; set; }
 
         public DateTime DeliveryDate { get; set; }
 
