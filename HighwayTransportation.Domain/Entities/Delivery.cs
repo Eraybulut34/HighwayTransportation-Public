@@ -16,9 +16,9 @@ namespace HighwayTransportation.Domain.Entities
             Company = new Company();
             Vehicle = new Vehicle();
             Employee = new Employee();
-            DeliveryDate = DateTime.Now;
-            DeliveryTime = DateTime.Now;
-            DeliveryTimeEnd = DateTime.Now;
+            DeliveryDate = DateTime.UtcNow;
+            DeliveryTime = DateTime.UtcNow;
+            DeliveryTimeEnd = DateTime.UtcNow;
             DeliveryNote = "";
             DeliveryNumber = "";
             DocumentNumber = "";

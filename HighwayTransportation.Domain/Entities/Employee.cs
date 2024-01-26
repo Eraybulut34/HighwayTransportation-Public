@@ -20,8 +20,8 @@ namespace HighwayTransportation.Domain.Entities
             IdentityNumber = "";
             PhoneNumber = "";
             Email = "";
-            StartDate = DateTime.Now;
-            EndDate = DateTime.Now;
+            StartDate = DateTime.UtcNow;
+            EndDate = DateTime.UtcNow;
         }
         public string Name { get; set; }
         public string SurName { get; set; }

@@ -6,6 +6,8 @@ using HighwayTransportation.Services;
 using HighwayTransportation.Domain.Entities;
 using HighwayTransportation.Core;
 using HighwayTransportation.Core.Dtos;
+using HighwayTransportation.Domain.Enums;
+using System.Text.Json;
 
 
 namespace HighwayTransportation.Providers
@@ -39,21 +41,46 @@ namespace HighwayTransportation.Providers
             _employeeService = employeeService;
             _vehicleService = vehicleService;
         }
-
-        public async Task<List<GetExpenseListDto>> GetExpenses()
+        public async Task<List<GetExpenseListDto>> GetExpenses(int? projectId, int? companyId, int? employeeId, int? vehicleId, ExpenseTypeEnum type)
         {
             //IsDeleted == false
             var expenses = await _expenseService.GetAllAsync();
+            if (projectId != null)
+            {
+                expenses = expenses.Where(x => x.ProjectId == projectId).ToList();
+            }
+            if (companyId != null)
+            {
+                expenses = expenses.Where(x => x.CompanyId == companyId).ToList();
+            }
+            if (employeeId != null)
+            {
+                expenses = expenses.Where(x => x.EmployeeId == employeeId).ToList();
+            }
+            if (vehicleId != null)
+            {
+                expenses = expenses.Where(x => x.VehicleId == vehicleId).ToList();
+            }
+            if (type != null)
+            {
+                expenses = expenses.Where(x => x.Type == type).ToList();
+            }
             return _mapper.Map<List<GetExpenseListDto>>(expenses.Where(x => x.IsDeleted == false).ToList());
         }
 
         public async Task<Expense> CreateExpense(CreateExpenseDto expense)
         {
-            var expenseEntity = _mapper.Map<Expense>(expense);
-            expenseEntity.Company = await _companyService.GetByIdAsync(expense.CompanyId);
-            expenseEntity.Project = await _projectService.GetByIdAsync(expense.ProjectId);
-            expenseEntity.Employee = await _employeeService.GetByIdAsync(expense.EmployeeId);
-            expenseEntity.Vehicle = await _vehicleService.GetByIdAsync(expense.VehicleId);
+            var expenseEntity = new Expense
+            {
+                CompanyId = expense.CompanyId,
+                ProjectId = expense.ProjectId,
+                EmployeeId = expense.EmployeeId,
+                VehicleId = expense.VehicleId,
+                Type = expense.Type,
+                Amount = expense.Amount,
+                Description = expense.Description,
+                Date = DateTime.UtcNow
+            };
             await _expenseService.AddAsync(expenseEntity);
             return expenseEntity;
 

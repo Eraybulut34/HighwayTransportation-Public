@@ -14,7 +14,7 @@ namespace HighwayTransportation.Domain.Entities
         {
             Description = "";
             Amount = 0;
-            PaymentDate = DateTime.Now;
+            PaymentDate = DateTime.UtcNow;
             PaymentMethod = PaymentMethodEnum.Cash;
             Company = new Company();
             Project = new Project();

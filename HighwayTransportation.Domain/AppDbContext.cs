@@ -29,6 +29,7 @@ namespace HighwayTransportation.Domain
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             
+            
             base.OnModelCreating(modelBuilder);
         }
     }

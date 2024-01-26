@@ -22,6 +22,7 @@
   <ProjectReference Include="..\HighwayTransportation.Domain\HighwayTransportation.Domain.csproj" />
   <ProjectReference Include="..\HighwayTransportation.Services\HighwayTransportation.Services.csproj" />
   <ProjectReference Include="..\HighwayTransportation.Core\HighwayTransportation.Core.csproj" />
+  <ProjectReference Include="..\HighwayTransportation.Providers\HighwayTransportation.Web.csproj" />
   </ItemGroup>
 
 </Project>

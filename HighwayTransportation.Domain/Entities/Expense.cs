@@ -14,11 +14,15 @@ namespace HighwayTransportation.Domain.Entities
         {
             Description = "";
             Amount = 0;
-            Date = DateTime.Now;
+            Date = DateTime.UtcNow;
             Employee = new Employee();
+            EmployeeId = 0;
             Vehicle = new Vehicle();
+            VehicleId = 0;
             Company = new Company();
+            CompanyId = 0;
             Project = new Project();
+            ProjectId = 0;
             Type = ExpenseTypeEnum.Fuel;
         }
 
@@ -30,11 +34,19 @@ namespace HighwayTransportation.Domain.Entities
 
         public Employee Employee { get; set; }
 
+        public int EmployeeId { get; set; }
+
         public Vehicle Vehicle { get; set; }
+
+        public int VehicleId { get; set; }
 
         public Company Company { get; set; }
 
+        public int CompanyId { get; set; }
+
         public Project Project { get; set; }
+
+        public int ProjectId { get; set; }
 
         public ExpenseTypeEnum Type { get; set; }
 
