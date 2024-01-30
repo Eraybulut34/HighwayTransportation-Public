@@ -86,7 +86,7 @@ namespace HighwayTransportation.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(List<TEntity> entities)
+        public async Task UpdateRangeAsync(List<TEntity> entities)
         {
             _dbSet.UpdateRange(entities);
             await _context.SaveChangesAsync();

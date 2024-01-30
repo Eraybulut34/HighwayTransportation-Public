@@ -49,7 +49,20 @@ namespace HighwayTransportation.Providers
         public async Task<GetEmployeeDetailDto> UpdateEmployee(int id, UpdateEmployeeDto employee)
         {
             var employeeEntity = _employeeService.GetByIdAsync(id).Result;
-            employeeEntity = _mapper.Map<Employee>(employee);
+            employeeEntity.Name = employee.Name;
+            employeeEntity.SurName = employee.SurName;
+            employeeEntity.BirthDate = employee.BirthDate;
+            employeeEntity.LicenseTypes = employee.LicenseTypes;
+            employeeEntity.BloodGroup = employee.BloodGroup;
+            employeeEntity.Gender = employee.Gender;
+            employeeEntity.WorkingType = employee.WorkingType;
+            employeeEntity.IdentityNumber = employee.IdentityNumber;
+            employeeEntity.PhoneNumber = employee.PhoneNumber;
+            employeeEntity.Email = employee.Email;
+            employeeEntity.StartDate = employee.StartDate;
+            employeeEntity.EndDate = employee.EndDate;
+            employeeEntity.EmployeeType = employee.EmployeeType;
+
             await _employeeService.UpdateAsync(employeeEntity);
             return _mapper.Map<GetEmployeeDetailDto>(employeeEntity);
         }

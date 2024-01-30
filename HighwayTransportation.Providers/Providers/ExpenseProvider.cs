@@ -65,17 +65,18 @@ namespace HighwayTransportation.Providers
             {
                 expenses = expenses.Where(x => x.Type == type).ToList();
             }
-            return _mapper.Map<List<GetExpenseListDto>>(expenses.Where(x => x.IsDeleted == false).ToList());
+            var xxx = _mapper.Map<List<GetExpenseListDto>>(expenses.Where(x => x.IsDeleted == false).ToList());
+            return xxx;
         }
 
         public async Task<Expense> CreateExpense(CreateExpenseDto expense)
         {
             var expenseEntity = new Expense
             {
-                CompanyId = expense.CompanyId,
-                ProjectId = expense.ProjectId,
-                EmployeeId = expense.EmployeeId,
-                VehicleId = expense.VehicleId,
+                Company = await _companyService.GetByIdAsync(expense.CompanyId),
+                Project = await _projectService.GetByIdAsync(expense.ProjectId),
+                Employee = await _employeeService.GetByIdAsync(expense.EmployeeId),
+                Vehicle = await _vehicleService.GetByIdAsync(expense.VehicleId),
                 Type = expense.Type,
                 Amount = expense.Amount,
                 Description = expense.Description,

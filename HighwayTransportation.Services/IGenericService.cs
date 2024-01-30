@@ -62,7 +62,7 @@ namespace HighwayTransportation.Services
         Task AddRangeAsync(IEnumerable<TEntity> entities);
 
         Task UpdateAsync(TEntity entity);
-        Task UpdateAsync(List<TEntity> entities);
+        Task UpdateRangeAsync(List<TEntity> entities);
 
         Task RemoveAsync(TEntity entity);
         Task RemoveRangeAsync(IEnumerable<TEntity> entities);

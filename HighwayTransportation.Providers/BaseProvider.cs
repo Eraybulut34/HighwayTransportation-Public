@@ -57,6 +57,6 @@ public class ProviderBase<TService, TEntity> : IBaseProvider<TEntity>
 
     public void UpdateAsync(List<TEntity> entities)
     {
-        _service.UpdateAsync(entities);
+        _service.UpdateRangeAsync(entities);
     }
 }
