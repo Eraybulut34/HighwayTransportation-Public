@@ -18,7 +18,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("SqlConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("SqlConnection"))
+    );
+
+
 
 builder.Services.AddScoped<IGenericService<AppUser>, GenericService<AppUser>>();
 builder.Services.AddScoped<IGenericService<AddressItem>, GenericService<AddressItem>>();
@@ -38,6 +41,7 @@ builder.Services.AddScoped<CompanyService>();
 builder.Services.AddScoped<ExpenseService>();
 builder.Services.AddScoped<DeliveryService>();
 builder.Services.AddScoped<EmployeeService>();
+builder.Services.AddScoped<AppDbContext>();
 builder.Services.AddScoped<IMapper, MapsterMapper.Mapper>();
 builder.Services.AddScoped<DeliveryProvider>();
 builder.Services.AddScoped<VehicleProvider>();

@@ -19,6 +19,6 @@ namespace HighwayTransportation.Domain.Entities
 
         public AddressItemTypeEnum AddressItemType { get; set; }
 
-        public AddressItem Parent { get; set; }
+        public virtual AddressItem Parent { get; set; } = new ();
     }
 }

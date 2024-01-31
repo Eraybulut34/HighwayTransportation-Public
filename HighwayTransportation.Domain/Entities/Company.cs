@@ -9,32 +9,21 @@ namespace HighwayTransportation.Domain.Entities
 {
     public class Company : IEntity
     {
-        public Company()
-        {
-            Id = 0;
-            Name = "";
-            TaxNumber = "";
-            Addresses = new List<CompanyAddress>();
-            Vehicles = new List<Vehicle>();
-            Employees = new List<Employee>();
-            PhoneNumber = "";
-            Email = "";
-            WebSites = new List<string>();
-        }
-        public string Name { get; set; }
-        public string TaxNumber { get; set; }
 
-        public List<CompanyAddress> Addresses { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string TaxNumber { get; set; } = string.Empty;
 
-        public List<Vehicle> Vehicles { get; set; }
+        public List<CompanyAddress> Addresses { get; set; } = new List<CompanyAddress>();
 
-        public List<Employee> Employees { get; set; }
+        public List<Vehicle> Vehicles { get; set; } = new List<Vehicle>();
 
-        public string PhoneNumber { get; set; }
+        public List<Employee> Employees { get; set; } = new List<Employee>();
 
-        public string Email { get; set; }
+        public string PhoneNumber { get; set; } = string.Empty;
 
-        public List<string> WebSites { get; set; }
+        public string Email { get; set; } = string.Empty;
+
+        public List<string> WebSites { get; set; } = new List<string>();
 
 
     }

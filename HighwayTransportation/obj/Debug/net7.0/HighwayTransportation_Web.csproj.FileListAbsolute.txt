@@ -47,6 +47,7 @@ C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debu
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation_Web.runtimeconfig.json
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation_Web.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/HighwayTransportation_Web.pdb
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Castle.Core.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Humanizer.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Mapster.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Mapster.Core.dll
@@ -59,6 +60,7 @@ C:/Users/Semih/source/repos/HighwayTransportation/HighwayTransportation/obj/Debu
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Proxies.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/bin/Debug/net7.0/Microsoft.Extensions.Identity.Core.dll

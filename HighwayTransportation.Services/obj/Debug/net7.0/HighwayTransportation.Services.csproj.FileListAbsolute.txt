@@ -1,8 +1,3 @@
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.csproj.AssemblyReference.cache
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.GeneratedMSBuildEditorConfig.editorconfig
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.AssemblyInfoInputs.cache
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.AssemblyInfo.cs
-/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.csproj.CoreCompileInputs.cache
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/HighwayTransportation.Services
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/HighwayTransportation.Services.deps.json
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/HighwayTransportation.Services.runtimeconfig.json
@@ -34,6 +29,11 @@
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/HighwayTransportation.Domain.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/bin/Debug/net7.0/HighwayTransportation.Domain.pdb
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.csproj.AssemblyReference.cache
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.AssemblyInfoInputs.cache
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.AssemblyInfo.cs
+/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.csproj.CoreCompileInputs.cache
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.csproj.CopyComplete
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/HighwayTransportation.Services.dll
 /Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation.Services/obj/Debug/net7.0/refint/HighwayTransportation.Services.dll

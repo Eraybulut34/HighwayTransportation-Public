@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Ah/SMIjn8ZBQ64hdPlH0xddVKIVZwhZW6lScjxyA1Pb7WSX29ApoHxfKqdH2TgM92JJOLW8qo/uGYemtX+UAlw==",
+  "dgSpecHash": "pDA29RVFMSB1GqF3QdrZm+d1jOMZ1E8FufHuZm/ami5Hl4cacoj6OEPk76hs4v2QJVRgnkOT9rPWun9C5AuDWw==",
   "success": true,
   "projectFilePath": "/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/HighwayTransportation_Web.csproj",
   "expectedPackageFiles": [
+    "/Users/abdullaheraybulut/.nuget/packages/castle.core/5.1.0/castle.core.5.1.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/mapster/7.3.0/mapster.7.3.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/mapster.core/1.2.0/mapster.core.1.2.0.nupkg.sha512",
@@ -18,6 +19,7 @@
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.11/microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.11/microsoft.entityframeworkcore.analyzers.7.0.11.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.entityframeworkcore.design/7.0.11/microsoft.entityframeworkcore.design.7.0.11.nupkg.sha512",
+    "/Users/abdullaheraybulut/.nuget/packages/microsoft.entityframeworkcore.proxies/7.0.11/microsoft.entityframeworkcore.proxies.7.0.11.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.entityframeworkcore.relational/7.0.11/microsoft.entityframeworkcore.relational.7.0.11.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
@@ -49,6 +51,7 @@
     "/Users/abdullaheraybulut/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
+    "/Users/abdullaheraybulut/.nuget/packages/system.diagnostics.eventlog/6.0.0/system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/system.identitymodel.tokens.jwt/7.0.0/system.identitymodel.tokens.jwt.7.0.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
