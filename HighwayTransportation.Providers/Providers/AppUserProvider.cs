@@ -1,46 +1,86 @@
-using System.Collections.Generic;
+using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using MapsterMapper;
-using HighwayTransportation.Providers;
-using HighwayTransportation.Services;
-using HighwayTransportation.Domain.Entities;
-using HighwayTransportation.Core;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 using HighwayTransportation.Core.Dtos;
-
+using HighwayTransportation.Domain.Entities;
+using HighwayTransportation.Services;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using HighwayTransportation.Domain;
 
 namespace HighwayTransportation.Providers
 {
-    public class AppUserProvider : ProviderBase<AppUserService, AppUser> 
+    public class AppUserProvider
     {
-        IMapper _mapper;
-        AppUserService _appUserService;
+        private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public AppUserProvider(AppUserService appUserService, IMapper mapper) : base(appUserService)
+        public AppUserProvider(AppDbContext context, IConfiguration configuration)
         {
-            _mapper = mapper;
-            _appUserService = appUserService;
+            _context = context;
+            _configuration = configuration;
         }
 
-        public async Task<LoginResponse> Login(LoginRequest loginRequest)
+        public async Task<string> Login(LoginRequest loginRequest)
         {
-            var user = await _appUserService.GetByQueryAsync(x => x.Email == loginRequest.Email && x.Password == loginRequest.Password);
+            var user = _context.AppUsers.FirstOrDefault(u => u.Email == loginRequest.Email && u.Password == loginRequest.Password);
             if (user == null)
             {
-                return new LoginResponse
-                {
-                    IsSuccess = false,
-                    Message = "User not found"
-                };
+                return null; // Kullanıcı adı veya şifre hatalı olduğunda null dön
             }
-            else
+
+            var token = GenerateJwtToken(user);
+
+            return token;
+        }
+
+        private string GenerateJwtToken(AppUser user)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_configuration["JwtSettings:SecretKey"]);
+
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-                return new LoginResponse
+                Subject = new ClaimsIdentity(new Claim[]
                 {
-                    IsSuccess = true,
-                    Message = "Login Success",
-                    User = _mapper.Map<AppUserDto>(user)
-                };
+            new Claim(ClaimTypes.Name, user.Email),
+                    // Burada kullanıcının rollerini de ekleyebilirsiniz
+                }),
+                Expires = DateTime.UtcNow.AddHours(Convert.ToInt32(_configuration["JwtSettings:ExpirationHours"])),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
+
+        public async Task<string> SignUp(SignUpRequest signUpRequest)
+        {
+            // Kullanıcı adının benzersiz olduğunu kontrol edin
+            var existingUser = _context.AppUsers.FirstOrDefault(u => u.Email == signUpRequest.Email);
+            if (existingUser != null)
+            {
+                return null; // E-posta adresi zaten kullanımda olduğunda null dön
             }
+
+            // Yeni kullanıcı oluştur
+            var newUser = new AppUser
+            {
+                Name = signUpRequest.Name,
+                Surname = signUpRequest.Surname,
+                Email = signUpRequest.Email,
+                PhoneNumber = signUpRequest.PhoneNumber,
+                Password = signUpRequest.Password,
+                // Diğer kullanıcı bilgilerini buradan alabilirsiniz
+            };
+
+            _context.AppUsers.Add(newUser);
+            await _context.SaveChangesAsync();
+
+            return "User created successfully"; // Kullanıcı başarıyla oluşturulduğunda mesaj dön
         }
     }
 }

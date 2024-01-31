@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pDA29RVFMSB1GqF3QdrZm+d1jOMZ1E8FufHuZm/ami5Hl4cacoj6OEPk76hs4v2QJVRgnkOT9rPWun9C5AuDWw==",
+  "dgSpecHash": "L9HYLyRgkAuqC8zAHWteV376Av96XYFRTye9v9J9P9iBiuCQqn1f4zsbSo3qrkUf02UTL+CaJjIFF/qHrRi+ig==",
   "success": true,
   "projectFilePath": "/Users/abdullaheraybulut/Desktop/myprojects/HighwayTransportation/HighwayTransportation/HighwayTransportation_Web.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/Users/abdullaheraybulut/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/mapster/7.3.0/mapster.7.3.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/mapster.core/1.2.0/mapster.core.1.2.0.nupkg.sha512",
+    "/Users/abdullaheraybulut/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.0/microsoft.aspnetcore.authentication.jwtbearer.7.0.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.aspnetcore.cryptography.internal/7.0.11/microsoft.aspnetcore.cryptography.internal.7.0.11.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/7.0.11/microsoft.aspnetcore.cryptography.keyderivation.7.0.11.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/7.0.11/microsoft.aspnetcore.identity.entityframeworkcore.7.0.11.nupkg.sha512",
@@ -37,6 +38,8 @@
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.identitymodel.abstractions/7.0.0/microsoft.identitymodel.abstractions.7.0.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.identitymodel.jsonwebtokens/7.0.0/microsoft.identitymodel.jsonwebtokens.7.0.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.identitymodel.logging/7.0.0/microsoft.identitymodel.logging.7.0.0.nupkg.sha512",
+    "/Users/abdullaheraybulut/.nuget/packages/microsoft.identitymodel.protocols/6.15.1/microsoft.identitymodel.protocols.6.15.1.nupkg.sha512",
+    "/Users/abdullaheraybulut/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.15.1/microsoft.identitymodel.protocols.openidconnect.6.15.1.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.identitymodel.tokens/7.0.0/microsoft.identitymodel.tokens.7.0.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/abdullaheraybulut/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
