@@ -8,11 +8,14 @@ using HighwayTransportation.Providers;
 using Microsoft.OpenApi.Any;
 using HighwayTransportation.Core;
 using HighwayTransportation.Core.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HighwayTransportation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class PaymentController : ControllerBase
     {
 

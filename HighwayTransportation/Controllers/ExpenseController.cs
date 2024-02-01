@@ -9,11 +9,14 @@ using Microsoft.OpenApi.Any;
 using HighwayTransportation.Core;
 using HighwayTransportation.Core.Dtos;
 using HighwayTransportation.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HighwayTransportation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class ExpenseController : ControllerBase
     {
 
@@ -23,15 +26,6 @@ namespace HighwayTransportation.Controllers
         {
             _expenseProvider = expenseProvider;
         }
-
-        [HttpGet]
-        // [HttpGet]
-        //fromQuery'den projectId, companyId, employeeId, vehicleId, type alıyoruz
-        // public async Task<ActionResult<List<GetExpenseListDto>>> GetExpenses()
-        // {
-        //     var expenses = await _expenseProvider.GetExpenses();
-        //     return Ok(expenses);
-        // }
 
         [HttpGet]
         public async Task<ActionResult<List<GetExpenseListDto>>> GetExpenses([FromQuery] int? projectId, [FromQuery] int? companyId, [FromQuery] int? employeeId, [FromQuery] int? vehicleId, [FromQuery] ExpenseTypeEnum type)
