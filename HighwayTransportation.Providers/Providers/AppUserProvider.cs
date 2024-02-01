@@ -29,7 +29,7 @@ namespace HighwayTransportation.Providers
             var user = _context.AppUsers.FirstOrDefault(u => u.Email == loginRequest.Email && u.Password == loginRequest.Password);
             if (user == null)
             {
-                return null; // Kullanıcı adı veya şifre hatalı olduğunda null dön
+                return null;
             }
 
             var token = GenerateJwtToken(user);
@@ -47,15 +47,18 @@ namespace HighwayTransportation.Providers
                 Subject = new ClaimsIdentity(new Claim[]
                 {
             new Claim(ClaimTypes.Name, user.Email),
-                    // Burada kullanıcının rollerini de ekleyebilirsiniz
+            new Claim(ClaimTypes.Role, user.Role.ToString()), 
                 }),
                 Expires = DateTime.UtcNow.AddHours(Convert.ToInt32(_configuration["JwtSettings:ExpirationHours"])),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+                Audience = _configuration["JwtSettings:Audience"],
+                Issuer = _configuration["JwtSettings:Issuer"]
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
 
         public async Task<string> SignUp(SignUpRequest signUpRequest)
         {
@@ -63,10 +66,9 @@ namespace HighwayTransportation.Providers
             var existingUser = _context.AppUsers.FirstOrDefault(u => u.Email == signUpRequest.Email);
             if (existingUser != null)
             {
-                return null; // E-posta adresi zaten kullanımda olduğunda null dön
+                return null; 
             }
 
-            // Yeni kullanıcı oluştur
             var newUser = new AppUser
             {
                 Name = signUpRequest.Name,
@@ -80,7 +82,7 @@ namespace HighwayTransportation.Providers
             _context.AppUsers.Add(newUser);
             await _context.SaveChangesAsync();
 
-            return "User created successfully"; // Kullanıcı başarıyla oluşturulduğunda mesaj dön
+            return "User created successfully"; 
         }
     }
 }
